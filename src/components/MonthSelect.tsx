@@ -16,8 +16,6 @@ const MonthSelect: FunctionComponent<MonthSelectProps> = ({
     month = 1,
     onMonthChange = () => {},
 }) => {
-    // get list of months as select options
-
     return (
         <select
             value={month}
