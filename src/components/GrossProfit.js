@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { ColumnChart, Model } from '@gooddata/react-components';
-import MonthSelect from '../MonthSelect';
+import MonthSelect from './MonthSelect';
 import '@gooddata/react-components/styles/css/main.css';
 
 const getMonthFilter = (dateAttribute, month, year) => {
