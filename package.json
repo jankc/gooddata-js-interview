@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@gooddata/react-components": "6.2.0",
+    "@gooddata/react-components": "^7.2.0",
     "http-proxy-middleware": "0.19.1",
     "moment": "^2.24.0",
     "node-sass": "4.11.0",
