@@ -36,7 +36,7 @@ export type GrossProfitOptions = {
     dateAttribute: string;
 };
 
-export type GrossProfitProps = {
+type GrossProfitProps = {
     options: GrossProfitOptions;
     year: number;
 };

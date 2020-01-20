@@ -5,12 +5,12 @@ import GrossProfit, { GrossProfitOptions } from './GrossProfit';
 import '@gooddata/react-components/styles/css/main.css';
 
 export default function() {
+    const projectId = 'xms7ga4tf3g3nzucd8380o2bev8oeknp';
     const grossProfitOptions: GrossProfitOptions = {
-        projectId: 'xms7ga4tf3g3nzucd8380o2bev8oeknp',
-        grossProfitMeasure: '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/6877',
-        dateAttributeInMonths:
-            '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2142',
-        dateAttribute: '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2180',
+        projectId,
+        grossProfitMeasure: `/gdc/md/${projectId}/obj/6877`,
+        dateAttributeInMonths: `/gdc/md/${projectId}/obj/2142`,
+        dateAttribute: `/gdc/md/${projectId}/obj/2180`,
     };
     return (
         <div className="App">
