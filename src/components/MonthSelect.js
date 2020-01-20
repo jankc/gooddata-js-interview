@@ -1,4 +1,5 @@
 import React from 'react';
+// import moment from 'moment';
 
 export default function({ month = 1, onChange = () => {} }) {
     return (
@@ -18,3 +19,20 @@ export default function({ month = 1, onChange = () => {} }) {
         </select>
     );
 }
+
+// Alternative solution using moment
+// However, the first is much easier to read so I would keep it as it is.
+// At least until it needs advanced features like e.g. internationalization
+
+// export default function({ month = 1, onChange = () => {} }) {
+//     const monthOptions = moment
+//         .months()
+//         .map((monthName, index) => (
+//             <option value={index + 1}>{monthName}</option>
+//         ));
+//     return (
+//         <select value={month} onChange={event => onChange(event.target.value)}>
+//             {monthOptions}
+//         </select>
+//     );
+// }

@@ -2,17 +2,26 @@
 
 import React, { useState } from 'react';
 import { ColumnChart, Model } from '@gooddata/react-components';
+import moment from 'moment';
 import MonthSelect from './MonthSelect';
 import '@gooddata/react-components/styles/css/main.css';
 
 const getMonthFilter = (dateAttribute, month, year) => {
-    // moment.js could be used here
-    const firstDay = new Date(year, month - 1, 1);
-    const lastDay = new Date(year, month, 0);
-    const fromDay = `${firstDay.getFullYear()}-${firstDay.getMonth() +
-        1}-${firstDay.getDate()}`;
-    const toDay = `${lastDay.getFullYear()}-${lastDay.getMonth() +
-        1}-${lastDay.getDate()}`;
+    const fromDay = moment([year, month - 1])
+        .startOf('month')
+        .format('YYYY-MM-DD');
+    const toDay = moment([year, month - 1])
+        .endOf('month')
+        .format('YYYY-MM-DD');
+
+    // Without a moment library:
+    // (I like moment as working with JS Date always feels a bit hacky)
+    //
+    // const fromDay = new Date(year, month - 1, 1, 1).toISOString().substr(0, 10);
+    // const toDay = new Date(year, month, 0, 1).toISOString().substr(0, 10);
+
+    // console.log(fromDay + ' - ' + toDay);
+
     return Model.absoluteDateFilter(dateAttribute, fromDay, toDay);
 };
 
@@ -69,6 +78,9 @@ const GrossProfit = ({ options, year }) => {
     );
 };
 
+// Without React hooks
+// I included it because the original example was based on react v.16.5.2 which does not support hooks.
+//
 // class GrossProfit extends Component {
 //     constructor(props) {
 //         super(props);
