@@ -1,11 +1,8 @@
 import React from 'react';
 
-export default ({ month = 1, onChange = () => {} }) => {
+export default function({ month = 1, onChange = () => {} }) {
     return (
-        <select
-            defaultValue={month}
-            onChange={event => onChange(event.target.value)}
-        >
+        <select value={month} onChange={event => onChange(event.target.value)}>
             <option value="1">January</option>
             <option value="2">February</option>
             <option value="3">March</option>
@@ -20,4 +17,4 @@ export default ({ month = 1, onChange = () => {} }) => {
             <option value="12">December</option>
         </select>
     );
-};
+}

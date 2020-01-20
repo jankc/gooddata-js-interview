@@ -4,7 +4,10 @@ body {
     font-family: sans-serif;
 }
 
-.App > div {
+/* .App .gross-profit {
+    height: 400px;
+} */
+.App .gross-profit > div {
     height: 400px;
 }
 
