@@ -14,7 +14,7 @@ export default function() {
     };
     return (
         <div className="App">
-            <GrossProfit options={grossProfitOptions} year={2017} />
+            <GrossProfit options={grossProfitOptions} year={2016} />
         </div>
     );
 }
