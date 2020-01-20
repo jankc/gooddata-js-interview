@@ -1,11 +1,11 @@
 // Copyright (C) 2007-2019, GoodData(R) Corporation. All rights reserved.
 
 import React from 'react';
-import GrossProfit from './GrossProfit';
+import GrossProfit, { GrossProfitOptions } from './GrossProfit';
 import '@gooddata/react-components/styles/css/main.css';
 
 export default function() {
-    const grossProfitOptions = {
+    const grossProfitOptions: GrossProfitOptions = {
         projectId: 'xms7ga4tf3g3nzucd8380o2bev8oeknp',
         grossProfitMeasure: '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/6877',
         dateAttributeInMonths:
