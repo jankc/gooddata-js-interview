@@ -14,14 +14,6 @@ const getMonthFilter = (dateAttribute: string, month: number, year: number) => {
         .endOf('month')
         .format('YYYY-MM-DD');
 
-    // Without a moment library:
-    // (I like moment as working with JS Date always feels a bit hacky)
-    //
-    // const fromDay = new Date(year, month - 1, 1, 1).toISOString().substr(0, 10);
-    // const toDay = new Date(year, month, 0, 1).toISOString().substr(0, 10);
-
-    // console.log(fromDay + ' - ' + toDay);
-
     return Model.absoluteDateFilter(dateAttribute, fromDay, toDay);
 };
 
@@ -92,54 +84,5 @@ const GrossProfit: FunctionComponent<GrossProfitProps> = ({
         </div>
     );
 };
-
-// Without React hooks
-// I included it because the original example was based on react v.16.5.2 which does not support hooks.
-//
-// class GrossProfit extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = { month: 1 };
-//     }
-
-//     render() {
-//         const filters = [
-//             getMonthFilter(
-//                 this.props.options.dateAttribute,
-//                 this.state.month,
-//                 this.props.year
-//             ),
-//         ];
-//         const measures = getMeasures(this.props.options.grossProfitMeasure);
-//         const viewBy = getViewBy(this.props.options.dateAttributeInMonths);
-//         return (
-//             <div className="gross-profit">
-//                 <h1>
-//                     $ Gross Profit in month{' '}
-//                     <MonthSelect
-//                         month={this.state.month}
-//                         onChange={month => this.setState({ month })}
-//                     />
-//                     {' ' + this.props.year}
-//                 </h1>
-//                 <div>
-//                     <ColumnChart
-//                         measures={measures}
-//                         filters={filters}
-//                         projectId={this.props.options.projectId}
-//                     />
-//                 </div>
-//                 <h1>$ Gross Profit - All months</h1>
-//                 <div>
-//                     <ColumnChart
-//                         measures={measures}
-//                         viewBy={viewBy}
-//                         projectId={this.props.options.projectId}
-//                     />
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
 
 export default GrossProfit;
