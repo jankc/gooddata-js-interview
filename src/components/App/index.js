@@ -12,14 +12,22 @@ const dateAttributeInMonths =
     '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2142';
 const dateAttribute = '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2180';
 
-const getMonthFilter = () => {
+const getMonthFilter = month => {
+    // moment.js could be used here
+    const firstDay = new Date(2016, month - 1, 1);
+    const lastDay = new Date(2016, month, 0);
+    const fromDay = `${firstDay.getFullYear()}-${firstDay.getMonth() +
+        1}-${firstDay.getDate()}`;
+    const toDay = `${lastDay.getFullYear()}-${lastDay.getMonth() +
+        1}-${lastDay.getDate()}`;
+    console.log(fromDay + ' - ' + toDay);
     return {
         absoluteDateFilter: {
             dataSet: {
                 uri: dateAttribute,
             },
-            from: '2016-01-01',
-            to: '2016-01-31',
+            from: fromDay,
+            to: toDay,
         },
     };
 };
@@ -56,7 +64,7 @@ const getViewBy = () => {
 const App = () => {
     const [month, setMonth] = useState(1);
     const projectId = 'xms7ga4tf3g3nzucd8380o2bev8oeknp';
-    const filters = [getMonthFilter()];
+    const filters = [getMonthFilter(month)];
     const measures = getMeasures();
     const viewBy = getViewBy();
 
